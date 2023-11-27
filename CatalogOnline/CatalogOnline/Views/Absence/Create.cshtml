@@ -1,0 +1,62 @@
+﻿@model CatalogOnline.Models.AbsenceModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>AbsenceModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdStudent" class="control-label">Student Name</label>
+                <select asp-for="IdStudent" class="form-control">
+                    <option value="">Select Student</option>
+                    @foreach (var student in Model.Students)
+                    {
+                        <option value="@student.IdStudent">@student.FirstName @student.LastName</option>
+                    }
+                </select>
+                <span asp-validation-for="IdStudent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IdTeacher" class="control-label">Teacher Name</label>
+                <select asp-for="IdTeacher" class="form-control">
+                    <option value="">Select Teacher</option>
+                    @foreach (var teacher in Model.Teachers)
+                    {
+                        <option value="@teacher.IdTeacher">@teacher.FirstName @teacher.LastName</option>
+                    }
+                </select>
+                <span asp-validation-for="IdTeacher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Date</label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discipline" class="control-label">Discipline</label>
+                <input asp-for="Discipline" class="form-control" />
+                <span asp-validation-for="Discipline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

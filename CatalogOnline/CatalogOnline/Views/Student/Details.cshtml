@@ -1,0 +1,55 @@
+﻿@model CatalogOnline.Models.StudentModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>StudentModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2" hidden>
+            @Html.DisplayNameFor(model => model.IdStudent)
+        </dt>
+        <dd class = "col-sm-10" hidden>
+            @Html.DisplayFor(model => model.IdStudent)
+        </dd>
+        <dt class = "col-sm-2">
+            First Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            Last Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            Email
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            Pnone Nr
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNr)
+        </dd>
+        <dt class = "col-sm-2">
+            Class
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Class)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.IdStudent  }) |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CatalogOnline.Models.AbsenceModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Student Name</p>
+            </th>
+            <th>
+                <p>Teacher Name</p>
+            </th>
+            <th>
+                <p>Date</p>
+            </th>
+            <th>
+                <p>Discipline</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameStud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameTeach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discipline)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.IdAbsence  }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.IdAbsence }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.IdAbsence })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
